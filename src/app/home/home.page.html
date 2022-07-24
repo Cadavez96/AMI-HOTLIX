@@ -1,20 +1,145 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+	<ion-toolbar>
+		<h1>HOTLIX</h1>
+
+		<ion-avatar slot="end">
+      <img src={{userPhoto}}>
+    </ion-avatar>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="banner">
+    <img src="../../assets/images/Banner-2.jpg" />
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="caption ion-padding">
+      <p>Hello,</p>
+      <h3>{{userName}}</h3>
+    </div>
+
+    <div class="search">
+      <ion-item lines="none" class="ion-no-padding">
+        <ion-searchbar placeholder="Search for anything" #searchbar [(ngModel)]="searchInput"
+      (click)="fetchSeries( searchbar.value )" (keyup)="fetchSeries( searchbar.value )"></ion-searchbar>
+        <ion-button slot='end'>
+          <img src="../../assets/icon/filter.svg" />
+        </ion-button>
+      </ion-item>
+    </div>
   </div>
+
+  <ion-list>
+    <ion-item *ngFor="let room of searchResult" (click)="showDetails(room)" [hidden]="toggle">
+
+      <ion-card class="pesquisar">
+        <img src={{room.photo}} />
+
+        <div class="info-search">
+          <h1 class="title">{{room.title}}</h1>
+          <p class="des">{{room.description}}</p>
+
+          <div class="info">
+            <p class="location"><ion-icon name="location"></ion-icon>{{room.location}}</p>
+          </div>
+
+          <div class="card-footer">
+            <div>
+              <h2 class="price">{{room.price}}</h2>
+            </div>
+          </div>
+
+
+        </div>
+
+      </ion-card>
+
+
+    </ion-item>
+  </ion-list>
+  <div  *ngIf="searchResult.length===0">
+  <div class="title">
+    <h2>Popular Rooms</h2>
+
+  </div>
+
+  <div class="event-slider">
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }" class="default-left-padding">
+      <ion-slide #slidingItem *ngFor="let room of rooms">
+        <ion-col class="ion-text-left">
+
+          <ion-card (click)="clickRoom(room)">
+            <ion-card-header class="ion-no-padding">
+              <img src={{room.photo}} />
+            </ion-card-header>
+
+            <ion-card-content>
+              <h2 class="eventname">{{room.title}}</h2>
+              <p class="location"><ion-icon name="location"></ion-icon>{{room.location}}</p>
+
+              <div class="additional-info">
+                <div class="attendees">
+                  <img src={{room.likes[0]}} />
+                  <img src={{room.likes[1]}} />
+                  <div class="count">
+                    <img src={{room.likes[2]}} />
+
+                    <p>+{{room.likes.length}}</p>
+                  </div>
+                </div>
+
+                <p class="time">{{room.price}}</p>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="default-top-padding title">
+    <h2>Best Price Rooms</h2>
+  </div>
+<div class="cheapRooms">
+  <div class="live-event" *ngFor="let room of cheapRooms" (click)="clickRoom(room)">
+    <img class="img2" src={{room.photo}} />
+
+    <div class="info">
+      <div class="content">
+        <h6>{{room.title}}</h6>
+
+
+        <p class="location"><ion-icon name='location'></ion-icon>{{room.location}}</p>
+
+        <div class="additional-info">
+          <div class="attendees">
+            <img src={{room.likes[0]}} />
+            <img src={{room.likes[1]}} />
+            <div class="count">
+              <img src={{room.likes[2]}} />
+
+              <p>+{{room.likes.length}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="indicator">
+        <div>{{room.price}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="footer">
+
+  <ion-icon class="active"  name="home"></ion-icon>
+  <ion-icon class="disactive"  (click)="goFav()" name="heart"></ion-icon>
+  <ion-icon class="disactive" (click)="goOrders()" name="bed"></ion-icon>
+  <ion-icon class="disactive" (click)="showAlert()" color="dark"  name="exit"></ion-icon>
+
+</div>
+
 </ion-content>

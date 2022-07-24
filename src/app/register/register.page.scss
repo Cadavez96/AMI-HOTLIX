@@ -1,0 +1,165 @@
+ion-content{
+  --ion-background-color: transparent;
+  --ion-item-background: transparent !important;
+}
+
+.bg-color{
+  background: #E1EAF9;
+}
+
+ion-header{
+  position: absolute;
+}
+
+ion-toolbar{
+  --ion-background-color:transparent;
+  --opacity:0;
+}
+
+ion-card{
+  --ion-background-color:transparent;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+ ion-card-title{
+   margin-top: 50px !important;
+   font-size: 25px;
+   color: #53565A;
+   font-weight: 600;
+   text-align: center;
+
+ }
+
+ ion-card-subtitle{
+   text-align: center;
+   padding-top: 15px !important;
+   font-size: 13px;
+   color: #888C91;
+   font-weight: 400;
+   text-transform: none;
+   padding: 0 30px;
+ }
+
+ion-card-content{
+  padding-top: 30px;
+}
+ ion-item{
+   color:#74787E;
+    --border-color:#D4D7DB;
+
+   --highlight-color-focused:#b78321;
+   --padding-start:0;
+   --inner-padding-end:0;
+   --highlight-color-invalid: #b78321;
+   --highlight-color-valid: #b78321;
+
+   font-size: 13px;
+   ion-input{
+     color:#74787E;
+     font-size: 13px;
+     ion-icon{
+       padding-right: 6px;
+       font-size: 18px;
+     }
+   }
+
+   ion-input:hover{
+     color:#b78321;
+
+   }
+
+
+
+ }
+
+ .sign-btn-wrap{
+    text-align: center;
+    padding-top: 45px;
+   .sign-btn{
+     --ion-primary-color:#215AB7;
+     --background:#b78321;
+     --background-activated:#E1EAF9;
+     --background-focused:#E1EAF9;
+     --background-hover:#647B9D;
+     color:#F4F6FA;
+     background-color: #215AB7;
+     border-radius: 25px;
+
+   }
+ }
+
+ .text-tag{
+   margin-top: 35px;
+   text-align: center;
+   span{
+     font-size: 13px;
+     font-weight: normal;
+     color:#334862;
+   }
+ }
+
+ .social-btns{
+   margin-top: 18px;
+   text-align: center;
+   ion-button{
+     width:50px;
+     padding-left: 5px !important;
+   }
+ }
+
+ .error_message{
+   font-size: 12px;
+   font-weight:200;
+   color: #913e07;
+ }
+
+ .container {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+}
+.profile-pic {
+  width: 100px;
+  height: 100px;
+}
+.hiddenFileInput > input{
+  height: 100%;
+  width: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+
+
+.outer {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 120px !important; /* any size */
+  max-height: 120px !important; /* any size */
+  margin: auto;
+  border-radius: 100%;
+  position: relative;
+  background-size: 120px 120px;
+}
+.inner {
+  background-color: #075E54;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.camera-icon {
+  height: 10px;
+  width: 10px;
+  color: white;
+}
+
+

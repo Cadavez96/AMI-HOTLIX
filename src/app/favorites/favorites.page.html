@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar >
+    <ion-button routerLink="/home" color="white">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+
+    <ion-title>Favorites</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="cards">
+
+        <ion-card class="search" *ngFor="let room of roomsFavorites" (click)="clickProduct(room)">
+
+          <img src={{room.photo}} />
+
+          <div class="info-search">
+            <h1 class="title">{{room.title}}</h1>
+            <p class="des">{{room.description}}</p>
+
+            <div class="info">
+              <p class="location"><ion-icon name="location"></ion-icon>{{room.location}}</p>
+            </div>
+
+            <div class="card-footer">
+              <div>
+                <h2 class="price">{{room.price}}</h2>
+              </div>
+            </div>
+          </div>
+
+        </ion-card>
+
+
+
+  </div>
+
+  <div *ngIf="idsFavorites < 1">
+    <p>No Favorites</p>
+  </div>
+  <div id="footer">
+
+    <ion-icon class="disactive"  (click)="goHome()" name="home"></ion-icon>
+    <ion-icon class="active" name="heart"></ion-icon>
+    <ion-icon class="disactive" (click)="goOrders()"  name="bed"></ion-icon>
+    <ion-icon class="disactive" (click)="logout()" color="dark"  name="exit"></ion-icon>
+
+  </div>
+
+
+</ion-content>

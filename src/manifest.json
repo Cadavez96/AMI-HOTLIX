@@ -1,0 +1,9 @@
+{
+
+  "short_name": "FireStarter",
+  "name": "Angular + FIrebase",
+  "start_url": "/?utm_source=home",
+
+  "gcm_sender_id": "941988327184"
+
+}
